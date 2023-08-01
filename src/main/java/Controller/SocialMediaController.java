@@ -125,9 +125,7 @@ public class SocialMediaController {
 
     private void updateMessage(Context context) throws JsonMappingException, JsonProcessingException {
         ObjectNode on = new ObjectMapper().readValue(context.body(), ObjectNode.class);
-        System.out.println(on);
         String msg = on.get("message_text").asText();
-        System.out.println(msg);
         Message message = ms.changeMessage(
                 Integer.parseInt(
                         Objects.requireNonNull(context.pathParam("message_id"))),
